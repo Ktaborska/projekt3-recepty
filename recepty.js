@@ -112,3 +112,45 @@ const recepty = [
     img: 'https://images.unsplash.com/photo-1516684669134-de6f7c473a2a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=353c1f4206a931db97274e65329b85d8&auto=format&fit=crop&w=634&q=80'
   },
 ]
+
+zobrazRecepty();
+
+function zobrazRecepty() {
+  let seznamReceptu = document.querySelector('#recepty');
+
+  for (let i = 0; i < recepty.length; i++){
+   
+  
+    let receptDiv = document.createElement('div');
+    let receptImg = document.createElement('div');
+    let receptTitle = document.createElement('div');
+    let img = document.createElement('img');
+    let h3 = document.createElement('h3');
+
+  
+    receptDiv.className = 'recept';
+    receptImg.className = 'recept-obrazek';
+    receptTitle.className = 'recept-info';
+
+  
+    img.src = recepty[i].img;
+    h3.textContent = recepty[i].nadpis;
+
+    receptImg.appendChild(img);
+    receptTitle.appendChild(h3);
+
+    receptDiv.appendChild(receptImg);
+    receptDiv.appendChild(receptTitle);
+
+    seznamReceptu.appendChild(receptDiv);
+    
+  }
+
+
+
+  
+
+
+
+}
+
