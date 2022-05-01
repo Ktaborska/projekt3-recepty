@@ -113,10 +113,11 @@ const recepty = [
   },
 ]
 
-zobrazRecepty();
+zobrazRecepty(recepty);
 
-function zobrazRecepty() {
+function zobrazRecepty(recepty) {
   let seznamReceptu = document.querySelector('#recepty');
+  seznamReceptu.innerHTML = ''; // LOL
 
   for (let i = 0; i < recepty.length; i++){
    
@@ -145,12 +146,15 @@ function zobrazRecepty() {
     seznamReceptu.appendChild(receptDiv);
     
   }
+}
 
+function hledatRecept(){
 
+  let hledanyRecept = document.querySelector('#hledat').value;
 
-  
-
-
-
+  let noveRecepty = recepty.filter(function (recept) {
+    return recept.nadpis.toLowerCase().includes(hledanyRecept.toLowerCase());
+  });
+  zobrazRecepty(noveRecepty);
 }
 
