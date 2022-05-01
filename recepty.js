@@ -168,3 +168,35 @@ function hledatKategorie(){
     zobrazRecepty(noveRecepty);
   }
 }
+
+function serazeni(){
+  let raditPodle = document.querySelector('#razeni').value;
+  alert(raditPodle);
+   if(raditPodle == 1){// nejlepších
+    let noveRecepty = recepty.sort(function (recept1, recept2) {
+      if (recept1.hodnoceni < recept2.hodnoceni){
+        return 1;
+      }
+      if (recept1.hodnoceni > recept2.hodnoceni){
+        return -1;
+      }    
+    });
+    zobrazRecepty(noveRecepty);
+  }else if(raditPodle == 2){// nejhorších
+    let noveRecepty = recepty.sort(function (recept1, recept2) {
+      if (recept1.hodnoceni < recept2.hodnoceni){
+        return -1;
+      }
+      if (recept1.hodnoceni > recept2.hodnoceni){
+        return 1;
+      }    
+    });
+    zobrazRecepty(noveRecepty);
+  }else {
+    zobrazRecepty(recepty);
+  }
+    
+  
+}
+
+
