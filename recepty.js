@@ -128,7 +128,8 @@ function zobrazRecepty(recepty) {
     let img = document.createElement('img');
     let h3 = document.createElement('h3');
 
-  
+    receptDiv.setAttribute("onclick","detailReceptu("+i+");");
+ 
     receptDiv.className = 'recept';
     receptImg.className = 'recept-obrazek';
     receptTitle.className = 'recept-info';
@@ -146,6 +147,16 @@ function zobrazRecepty(recepty) {
     seznamReceptu.appendChild(receptDiv);
     
   }
+}
+function detailReceptu(index){
+  console.log(index);
+  
+
+  document.querySelector('#recept-foto').src=recepty[index].img;
+  document.querySelector('#recept-kategorie').textContent=recepty[index].kategorie;
+  document.querySelector('#recept-hodnoceni').textContent=recepty[index].hodnoceni;
+  document.querySelector('#recept-nazev').textContent=recepty[index].nadpis;
+  document.querySelector('#recept-popis').textContent=recepty[index].popis;
 }
 
 function hledatRecept(){
@@ -171,7 +182,6 @@ function hledatKategorie(){
 
 function serazeni(){
   let raditPodle = document.querySelector('#razeni').value;
-  alert(raditPodle);
    if(raditPodle == 1){// nejlepších
     let noveRecepty = recepty.sort(function (recept1, recept2) {
       if (recept1.hodnoceni < recept2.hodnoceni){
